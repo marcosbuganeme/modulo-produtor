@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<meta name="author" content="Marcos Olavo Silva Buganeme" />
+
+	<meta name="description" content="Modulo Produtor - JMS" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<title>
+
+		<ui:insert name="titulo">#{msg['template.titulo']}</ui:insert>
+
+	</title>
+
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+
+</h:head>
+
+<h:body>
+
+	<p:ajaxStatus id="idAjaxStatus" styleClass="ajax-status" onsuccess="configurarMoeda();">
+		<f:facet name="start">
+			<h:graphicImage library="img" name="loading.gif" />
+		</f:facet>
+
+		<f:facet name="complete">
+			<h:outputText value="" />
+		</f:facet>
+	</p:ajaxStatus>
+
+	<div class="jumbotron">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<ui:insert name="titulo_corpo" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<ui:insert name="corpo" />
+				</div>
+			</div>
+		</div> <!-- container -->
+	</div> <!-- jumbotron -->
+
+	<script>
+		var configurarMoeda = function() {
+   			$('.moeda:not(.moeda-masked)').maskMoney({decimal: ',', thousands: '.', allowZero: true});
+   			$('.moeda:not(.moeda-masked)').addClass('moeda-masked');
+		};
+
+		$(document).ready(function() {
+		   configurarMoeda();
+		});
+	</script>
+
+	<h:outputScript library="js" name="bootstrap.min.js" />
+
+	<h:outputScript library="js" name="jquery-1.11.1.min.js" />
+
+	<h:outputScript library="js" name="jquery.maskMoney.js" />
+
+</h:body>
+
+</html>
