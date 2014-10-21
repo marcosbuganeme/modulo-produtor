@@ -30,7 +30,7 @@ public class Monitor implements Runnable {
 	private static final int DEZ_SEGUNDOS = 10 * 1000;
 
 	/** Constante DIRETORIO. */
-	private static final String DIRETORIO = "C:\\oobj";
+	private static final String DIRETORIO_SCANEADO = "C:\\oobj";
 
 	/** Constante EXTENSAO_ARQUIVO. */
 	private static final String EXTENSAO_ARQUIVO = ".xml";
@@ -49,7 +49,7 @@ public class Monitor implements Runnable {
 	 */
 	public void inicializarVarredura() {
 
-		this.setDiretorio(Monitor.DIRETORIO);
+		this.setDiretorio(Monitor.DIRETORIO_SCANEADO);
 
 		this.threadMonitor = new Thread(this);
 
