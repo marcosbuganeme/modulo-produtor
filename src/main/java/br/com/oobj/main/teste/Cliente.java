@@ -1,4 +1,4 @@
-package br.com.oobj.utilitarios;
+package br.com.oobj.main.teste;
 
 import java.io.Serializable;
 import java.util.Collection;

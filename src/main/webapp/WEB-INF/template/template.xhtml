@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
@@ -14,7 +14,7 @@
 
 	<meta name="description" content="Modulo Produtor - JMS" />
 
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title>
 
@@ -26,9 +26,9 @@
 
 </h:head>
 
-<h:body>
+<h:body styleClass="jumbotron">
 
-	<p:ajaxStatus id="idAjaxStatus" styleClass="ajax-status" onsuccess="configurarMoeda();">
+	<p:ajaxStatus styleClass="ajax-status">
 		<f:facet name="start">
 			<h:graphicImage library="img" name="loading.gif" />
 		</f:facet>
@@ -38,38 +38,39 @@
 		</f:facet>
 	</p:ajaxStatus>
 
-	<div class="jumbotron">
-		<div class="container">
+	<div class="container">
+		<div class="container-fluid">
 			<div class="row">
-				<div class="col-xs-12">
-					<ui:insert name="titulo_corpo" />
+				<div class="col-xs-12 text-center">
+					<ui:insert name="titulo_conteudo" />
 				</div>
 			</div>
 
+			<p:spacer height="20px" />
+
 			<div class="row">
-				<div class="col-xs-12">
-					<ui:insert name="corpo" />
+				<div class="col-xs-12 text-center">
+					<p:messages autoUpdate="true" closable="true" />
+
+					<ui:insert name="conteudo" />
 				</div>
 			</div>
-		</div> <!-- container -->
-	</div> <!-- jumbotron -->
 
-	<script>
-		var configurarMoeda = function() {
-   			$('.moeda:not(.moeda-masked)').maskMoney({decimal: ',', thousands: '.', allowZero: true});
-   			$('.moeda:not(.moeda-masked)').addClass('moeda-masked');
-		};
+			<p:spacer height="20px" />
 
-		$(document).ready(function() {
-		   configurarMoeda();
-		});
-	</script>
+			<div class="row text-center">
+				<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-10 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+					<footer>
+						<mark><strong>#{msgs['label.softwareDesenvolvido']}</strong></mark>
+					</footer>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<h:outputScript library="js" name="bootstrap.min.js" />
 
 	<h:outputScript library="js" name="jquery-1.11.1.min.js" />
-
-	<h:outputScript library="js" name="jquery.maskMoney.js" />
 
 </h:body>
 
