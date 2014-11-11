@@ -1,7 +1,9 @@
 modulo-produtor
 ===============
 
-módulo produtor JMS
+App desenvolvido para a oobj como teste da vaga desenvolvedor pleno java
+
+módulo produtor usando a API JMS
 
 Projeto rodando sob JAVA EE 1.7
 
